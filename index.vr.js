@@ -1,4 +1,5 @@
 import React from 'react';
+import Forest from './components/Forest';
 import {
   AppRegistry,
   asset,
@@ -12,6 +13,7 @@ export default class musical_exp_react_vr_pusher extends React.Component {
     return (
       <View>
         <Pano source={asset('images/background.jpg')} />
+        <Forest trees={100} perimeter={15} colors={['#016549', '#87b926', '#b1c96b']} />
       </View>
     );
   }
