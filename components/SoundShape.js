@@ -2,6 +2,7 @@ import React from 'react';
 import {
   VrButton,
   Animated,
+  Sound,
 } from 'react-vr';
 
 export default class SoundShape extends React.Component {
@@ -11,7 +12,7 @@ export default class SoundShape extends React.Component {
     this.state = {
       bounceValue: new Animated.Value(0),
     };
-  }
+}
 
   animateEnter() {
     Animated.spring(  
@@ -45,9 +46,11 @@ export default class SoundShape extends React.Component {
         <VrButton
           onEnter={()=>this.animateEnter()}
           onExit={()=>this.animateExit()}
+          onClick={() => this.props.onClick()}
         >
           {this.props.children}
         </VrButton>
+        <Sound playerState={this.props.playerState} source={this.props.sound} />
       </Animated.View>
     );
   }
